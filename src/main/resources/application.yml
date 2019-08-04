@@ -1,0 +1,84 @@
+spring:
+  profiles:
+    active: dev
+
+
+---
+# web port
+server:
+  port: 8081
+
+spring:
+  profiles: dev
+
+
+  mvc:
+    view:
+      prefix/spring:
+        mvc:
+          view:
+            suffix:# log config
+logging:
+  config: classpath:logback.xml
+
+
+### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:8080/
+
+    ### xxl-job executor address
+    executor:
+      appname: xxl-job-executor-sample
+      ip:
+      port: 9999
+      ### xxl-job log path
+      logpath: /data/applogs/xxl-job/jobhandler
+      ### xxl-job log retention days
+      logretentiondays: -1
+
+    ### xxl-job, access token
+    accessToken:
+
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+
+---
+# web port
+server:
+  port: 8081
+
+spring:
+  profiles: production
+
+# log config
+logging:
+  config: classpath:logback.xml
+
+
+### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:8080/
+
+    ### xxl-job executor address
+    executor:
+      appname: xxl-job-executor-sample
+      ip:
+      port: 9999
+      ### xxl-job log path
+      logpath: /data/applogs/xxl-job/jobhandler
+      ### xxl-job log retention days
+      logretentiondays: -1
+
+    ### xxl-job, access token
+    accessToken:
+
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
